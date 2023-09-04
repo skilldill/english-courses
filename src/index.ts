@@ -1,5 +1,5 @@
 import { createApp } from '@tramvai/core';
-import { CommonModule } from '@tramvai/module-common';
+import { COMBINE_REDUCERS, CommonModule } from '@tramvai/module-common';
 import { SpaRouterModule } from '@tramvai/module-router';
 import { RenderModule } from '@tramvai/module-render';
 import { ServerModule } from '@tramvai/module-server';
@@ -12,6 +12,8 @@ import {
 } from '@tramvai/tokens-render';
 import { HeaderModule } from '~shared/header';
 import 'styles/common.module.css';
+import { coursesReducer } from 'store/courses/reducer';
+import { HttpClientModule } from '@tramvai/module-http-client';
 
 createApp({
   name: 'ssr',
@@ -23,6 +25,7 @@ createApp({
     ServerModule,
     ErrorInterceptorModule,
     HeaderModule,
+    HttpClientModule,
   ],
   providers: [
     {
@@ -35,5 +38,9 @@ createApp({
           '<meta name="viewport" content="width=device-width, initial-scale=1">',
       },
     },
+    {
+      provide: COMBINE_REDUCERS,
+      useValue: [coursesReducer],
+    }
   ],
 });

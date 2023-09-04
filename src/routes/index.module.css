@@ -1,3 +1,19 @@
-.Code {
-  font-family: Consolas, Courier New, monospace;
+.coursesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cardWrap {
+  flex: 1;
+  min-width: 300px;
+  max-width: 300px;
+  
+}
+
+.courseBody {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

@@ -26,6 +26,7 @@
     "@tramvai/tokens-render": "^2.134.0",
     "@tramvai/tokens-router": "^2.134.0",
     "bootstrap": "^5.3.1",
+    "classnames": "^2.3.2",
     "postcss-global-import": "^1.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
