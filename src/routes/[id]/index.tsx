@@ -8,7 +8,7 @@ const CoursePage: PageComponent = () => {
     if (!currentCourse) return '...Загрузка';
 
     return (
-        <div className="container">
+        <div className="container page">
             <h1>{currentCourse.title}</h1>
             <p>{currentCourse.description}</p>
             <p>{currentCourse.speaker}</p>

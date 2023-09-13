@@ -1,11 +1,10 @@
 import { useCourses } from 'hooks';
 import styles from './index.module.css';
 import { PageComponent } from '@tramvai/react';
-import { fetchCoursesAction } from 'actions/fetchCoursesAction';
 import cn from 'classnames';
 
 export const IndexPage: PageComponent = () => {
-  const { courses } = useCourses();
+  const { courses, likeCourse } = useCourses();
 
   return (
     <main className="container">
@@ -22,7 +21,10 @@ export const IndexPage: PageComponent = () => {
                   <h5 className="card-title">{course.title}</h5>
                   <p className="card-text">{course.speaker}</p>
                 </div>
-                <a href={'/' + course.id} className="btn btn-primary">Посмотреть</a>
+                <div className={styles.cardControls}>
+                  <a href={'/' + course.id} className="btn btn-primary">Посмотреть</a>
+                  <button className="btn btn-success" onClick={() => likeCourse(course.id)}>Like</button>
+                </div>
               </div>
             </div>
           </div>
@@ -31,7 +33,5 @@ export const IndexPage: PageComponent = () => {
     </main>
   );
 };
-
-IndexPage.actions = [fetchCoursesAction]
 
 export default IndexPage;

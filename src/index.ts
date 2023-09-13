@@ -10,10 +10,12 @@ import {
   ResourceType,
   ResourceSlot,
 } from '@tramvai/tokens-render';
-import { HeaderModule } from '~shared/header';
+import { HeaderModule, FooterModule } from 'shared';
 import 'styles/common.module.css';
 import { coursesReducer } from 'store/courses/reducer';
 import { HttpClientModule } from '@tramvai/module-http-client';
+import { fetchCoursesAction } from 'actions/fetchCoursesAction';
+import { fetchLikedIdsAction } from 'actions/fetchLikedIdsAction';
 
 createApp({
   name: 'ssr',
@@ -25,6 +27,7 @@ createApp({
     ServerModule,
     ErrorInterceptorModule,
     HeaderModule,
+    FooterModule,
     HttpClientModule,
   ],
   providers: [
@@ -43,4 +46,5 @@ createApp({
       useValue: [coursesReducer],
     }
   ],
+  actions: [fetchCoursesAction, fetchLikedIdsAction]
 });
